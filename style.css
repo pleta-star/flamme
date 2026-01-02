@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(120deg, #ff416c, #ffcc00);
+  background-size: 300% 300%;
+  animation: gradient 12s ease infinite;
+  color: white;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  font-weight: bold;
+}
+
+.logo {
+  font-size: 20px;
+}
+
+.menu-btn {
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  display: none;
+  flex-direction: column;
+}
+
+.menu button {
+  margin: 5px 0;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
+}
+
+section {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  padding: 30px;
+  width: 90%;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,.3);
+}
+
+input, select, button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  font-size: 16px;
+}
+
+button {
+  background: linear-gradient(135deg, #ff512f, #f09819);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.card {
+  perspective: 1200px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 140px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-front {
+  background: rgba(255,255,255,0.25);
+}
+
+.card-back {
+  background: rgba(255,255,255,0.35);
+  transform: rotateY(180deg);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+/* Effets selon niveau */
+.card-inner.soft {
+  animation: softPulse 0.6s ease;
+}
+
+.card-inner.hard {
+  animation: hardShake 0.4s ease;
+}
+
+.card-inner.extreme {
+  box-shadow: 0 0 30px rgba(255,80,0,0.6);
+}
+
+.level-badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  animation: badgePop 0.4s ease;
+}
+
+/* Couleurs par niveau */
+.level-badge.soft {
+  background: rgba(255,255,255,0.35);
+  color: #fff;
+}
+
+.level-badge.hard {
+  background: rgba(255,80,80,0.6);
+  color: #fff;
+}
+
+.level-badge.extreme {
+  background: rgba(255,60,0,0.85);
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255,80,0,0.8);
+}
+
+/* Animation */
+@keyframes badgePop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+
+/* Animations */
+@keyframes softPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+@keyframes hardShake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes extremeImpact {
+  0% { transform: scale(1) rotate(0deg); }
+  40% { transform: scale(1.1) rotate(2deg); }
+  70% { transform: scale(1.1) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}

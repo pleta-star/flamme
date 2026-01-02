@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FLAME 🔥</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+  <div class="menu-btn" id="menuBtn">☰</div>
+  <div class="logo">🔥 FLAME</div>
+</header>
+
+<!-- MENU NIVEAUX -->
+<div class="menu" id="menu">
+  <button onclick="setLevel('soft')">😇 Soft</button>
+  <button onclick="setLevel('hard')">😈 Hard</button>
+  <button onclick="setLevel('extreme')">🔥 Extreme</button>
+</div>
+
+<main class="app">
+
+  <!-- SETUP -->
+  <section id="setup">
+    <input id="name1" placeholder="Prénom 1">
+    <input id="name2" placeholder="Prénom 2">
+
+    <select id="orientation">
+      <option value="hetero">Hétéro</option>
+      <option value="gay">Gay</option>
+      <option value="lesbienne">Lesbienne</option>
+    </select>
+
+    <button id="startBtn">Lancer la partie</button>
+  </section>
+
+<!-- GAME -->
+<section id="game" class="hidden">
+  <h2 id="player"></h2>
+
+  <div id="levelBadge" class="level-badge soft">
+    😇 SOFT
+  </div>
+
+
+  <div class="card" id="card">
+    <div class="card-inner" id="cardInner">
+
+      <!-- FACE AVANT -->
+      <div class="card-front">
+        Action ou Vérité ?
+      </div>
+
+      <!-- FACE ARRIÈRE -->
+      <div class="card-back" id="cardText">
+        Texte ici
+      </div>
+
+    </div>
+  </div>
+
+  <div class="actions">
+    <button onclick="play('action')">Action</button>
+    <button onclick="play('truth')">Vérité</button>
+  </div>
+
+  <button onclick="nextTurn()">Tour suivant</button>
+</section>
+
+
+</main>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
+
+<div class="card" id="card">
+  <div class="card-inner" id="cardInner">
+    <div class="card-front">
+      Action ou Vérité ?
+    </div>
+    <div class="card-back" id="cardText">
+      Texte ici
+    </div>
+  </div>
+</div>
+

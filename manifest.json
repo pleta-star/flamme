@@ -1,0 +1,8 @@
+{
+  "name": "FLAME",
+  "short_name": "FLAME",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ff416c",
+  "theme_color": "#ff512f"
+}
