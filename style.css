@@ -34,12 +34,28 @@ header {
 }
 
 .menu {
-  position: absolute;
-  top: 60px;
-  left: 10px;
+  position: fixed;
+  top: 70px;
+  left: 15px;
+  z-index: 9999;
   display: none;
   flex-direction: column;
+  gap: 12px;
 }
+
+.menu.show {
+  display: flex;
+}
+
+.menu.show {
+  display: flex;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+}
+
 
 .menu button {
   margin: 5px 0;
@@ -84,8 +100,14 @@ button {
 }
 
 .card {
-  perspective: 1200px;
+  position: relative;
+  z-index: 1;
 }
+
+.card-inner.flip {
+  transform: rotateY(180deg);
+}
+
 
 .card-inner {
   position: relative;
@@ -95,9 +117,6 @@ button {
   transition: transform 0.6s ease;
 }
 
-.card.flip .card-inner {
-  transform: rotateY(180deg);
-}
 
 .card-front,
 .card-back {
@@ -160,6 +179,28 @@ button:disabled {
   background: rgba(255,80,80,0.6);
   color: #fff;
 }
+
+
+
+#quitBtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+#quitBtn:active {
+  opacity: 0.5;
+}
+
+#quitBtn {
+  display: none;
+}
+
+
 
 .level-badge.extreme {
   background: rgba(255,60,0,0.85);
