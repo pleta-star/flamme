@@ -16,6 +16,10 @@
 <header>
   <div class="menu-btn" id="menuBtn">☰</div>
   <div class="logo">🔥 FLAME</div>
+  <button id="quitBtn" onclick="quitGame()">
+    ← Quitter
+  </button>
+
 </header>
 
 <!-- MENU NIVEAUX -->
@@ -43,36 +47,30 @@
 
 <!-- GAME -->
 <section id="game" class="hidden">
+
   <h2 id="player"></h2>
 
   <div id="levelBadge" class="level-badge soft">
     😇 SOFT
   </div>
 
-
-  <div class="card" id="card">
+  <div class="card">
     <div class="card-inner" id="cardInner">
-
-      <!-- FACE AVANT -->
       <div class="card-front">
         Action ou Vérité ?
       </div>
-
-      <!-- FACE ARRIÈRE -->
-      <div class="card-back" id="cardText">
-        Texte ici
-      </div>
-
+      <div class="card-back" id="cardText"></div>
     </div>
   </div>
 
   <div class="actions">
-    <button onclick="play('action')">Action</button>
-    <button onclick="play('truth')">Vérité</button>
+    <button class="choice-btn" onclick="play('action')">Action</button>
+    <button class="choice-btn" onclick="play('truth')">Vérité</button>
+    <button onclick="nextTurn()">Tour suivant</button>
   </div>
 
-  <button onclick="nextTurn()">Tour suivant</button>
 </section>
+
 
 
 </main>
