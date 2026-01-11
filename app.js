@@ -107,11 +107,76 @@ function updateLevelUI() {
   if (level === "extreme") levelBadge.innerText = "🔥 EXTREME";
 }
 
+function hideAllSections() {
+  document.getElementById("setup").classList.add("hidden");
+  document.getElementById("game").classList.add("hidden");
+  document.getElementById("diceGame").classList.add("hidden");
+
+  // Ferme aussi le menu
+  menu.classList.remove("show");
+  menu.style.display = "none";
+}
+
+
+/*DEE */
+const diceGame = document.getElementById("diceGame");
+const dice1 = document.getElementById("dice1");
+const dice2 = document.getElementById("dice2");
+
+const diceActions = {
+  soft: ["🤍 Câlin", "✋ Toucher", "💆 Masser", "😊 Caresses", "🌬️ Effleurer", "💋 Bisou"],
+  hard: ["✋ Toucher", "💆 Masser", "👏 Fesser", "💋 Lécher", "🔥 Mordiller", "😈 Presser"],
+  extreme: ["💋 Lécher", "🔥 Mordiller", "👏 Fesser", "😈 Masturber", "🔥 Sucer", "💥 Penetrer"]
+};
+
+const diceZones = {
+  soft: ["😊 Visage", "🤍 Ventre", "🍑 Fesses", "🦵 Cuisses", "🤲 Mains", "💆 Nuque"],
+  hard: ["💆 Cou", "🤍 Ventre", "🍑 Fesses", "🦵 Cuisses", "🔥 Poitrine", "😏 Sexe"],
+  extreme: ["💆 Cou", "🔥 Poitrine", "🍑 Fesses", "🦵 Cuisses", "😈 Zone chaude", "💥 Zone TRÈS chaude"]
+};
+
+/* ujj */
+
+function openDiceGame() {
+  hideAllSections();
+  document.getElementById("diceGame").classList.remove("hidden");
+}
+
+
+function closeDiceGame() {
+  hideAllSections();
+  document.getElementById("setup").classList.remove("hidden");
+}
+
+
+function rollDoubleDice() {
+  if (navigator.vibrate) navigator.vibrate(50);
+
+  dice1.classList.add("roll");
+  dice2.classList.add("roll");
+
+  setTimeout(() => {
+    const a = Math.floor(Math.random() * 6);
+    const z = Math.floor(Math.random() * 6);
+
+    dice1.textContent = diceActions[level][a];
+    dice2.textContent = diceZones[level][z];
+
+    dice1.classList.remove("roll");
+    dice2.classList.remove("roll");
+  }, 600);
+}
+
+
+
+
 /* QUIT GAME */
 function quitGame() {
   game.classList.add("hidden");
   setup.classList.remove("hidden");
   quitBtn.style.display = "none";
+  menu.classList.remove("show");
+
 
   played = false;
   cardInner.classList.remove("flip");
