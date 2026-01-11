@@ -15,6 +15,7 @@
 
 <header>
   <div class="menu-btn" id="menuBtn">☰</div>
+  <button id="soundToggle">🔊</button>
   <div class="logo">🔥 FLAME</div>
   <button id="quitBtn" onclick="quitGame()">
     ← Quitter
@@ -27,6 +28,10 @@
   <button onclick="setLevel('soft')">😇 Soft</button>
   <button onclick="setLevel('hard')">😈 Hard</button>
   <button onclick="setLevel('extreme')">🔥 Extreme</button>
+
+  <div class="menu-divider"></div>
+
+  <button onclick="openDiceGame()">🎲 Dé coquin</button>
 </div>
 
 <main class="app">
@@ -64,6 +69,9 @@
   </div>
 
   <div class="actions">
+
+    <div id="diceResult" class="dice-result hidden"></div>
+
     <button class="choice-btn" onclick="play('action')">Action</button>
     <button class="choice-btn" onclick="play('truth')">Vérité</button>
     <button onclick="nextTurn()">Tour suivant</button>
@@ -71,12 +79,32 @@
 
 </section>
 
+<section id="diceGame" class="hidden">
+
+  <h2>🎲 Dé coquin</h2>
+  <p class="dice-text">Lance les dés</p>
+
+  <div class="dice-container">
+    <div class="dice" id="dice1">🎲</div>
+    <div class="dice" id="dice2">🎲</div>
+  </div>
+
+  <button onclick="rollDoubleDice()">Lancer les dés</button>
+  <button onclick="closeDiceGame()">← Retour</button>
+
+
+</section>
+
+
 
 
 </main>
 
 <script src="data.js"></script>
 <script src="app.js"></script>
+<audio id="flipSound" src="sounds/flip.mp3"></audio>
+<audio id="bgMusic" src="sounds/bg.mp3" loop></audio>
+
 </body>
 </html>
 
